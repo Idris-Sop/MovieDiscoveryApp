@@ -41,17 +41,17 @@ struct LoginView: View {
     
     private var loadedView: some View {
         VStack(spacing: 8) {
-            Text(String(localized: "Welcome message", table: "Login"))
+            Text("Welcome")
                 .font(.largeTitle)
                 .fontWeight(.bold)
             Spacer()
-            TextField(String(localized: "Email placeholder", table: "Login"), text: $viewModel.email)
+            TextField("Email", text: $viewModel.email)
                 .focused($focused, equals: .email)
                 .onSubmit { focused = .password }
                 .keyboardType(.emailAddress)
                 .padding()
                 .border(.secondary)
-            SecureField(String(localized: "Password placeholder", table: "Login"), text: $viewModel.password)
+            SecureField("Password", text: $viewModel.password)
                 .focused($focused, equals: .password)
                 .padding()
                 .border(.secondary)
@@ -60,7 +60,7 @@ struct LoginView: View {
             Button(action: {
                 viewModel.onLogin()
             }) {
-                Text(String(localized: "Login button title", table: "Login"))
+                Text("Login")
                     .padding(8)
                     .frame(maxWidth: .infinity)
             }
@@ -69,7 +69,7 @@ struct LoginView: View {
          }
         .padding(16)
         .navigationBarTitleDisplayMode(.large)
-        .navigationTitle(String(localized: "Navigation title", table: "Login"))
+        .navigationTitle("Login")
     }
     
 }
